@@ -2,20 +2,43 @@
 
 ---
 
+## What is a framework anyway?
+
+Bacon
+
+---
+
+## Model, View, Controller
+
+Ipsum
+
+---
+
 ## Client side MVC
+
+Sit
 
 ---
 
 ## Backbone
 
----
-
-## Ember
+Pork
 
 ---
 
 ## CanJS
 
+
+Dolor
+
+---
+
+## Ember
+
+Sirloin
+
 ---
 
 ## ExtJS
+
+Amen

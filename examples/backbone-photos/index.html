@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos MVC</title>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <!-- Stylesheets
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57-precomposed.png">
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Backbone Photos</a>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+            </ul>
+            <form class="navbar-search pull-left" action="">
+              <i class="icon-search icon-white"></i>
+              <input type="text" class="search-query span3" placeholder="Search">
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div id="photo-app" class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well pre-scrollable">
+            <ul id="photo-list" class="nav nav-list thumbnails">
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div id="photo-content" class="span9"></div>
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; YYCjs 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Templates
+    ================================================== -->
+    <script id="thumbnail-template" type="text/template">
+      <li>
+        <a class="thumbnail" id="photo-<%= photo.id %>" href="#/photos/<%= photo.id %>">
+          <img src="<%= photo.thumbnailUrl %>">
+        </a>
+      </li>
+    </script>
+
+    <script id="photo-template" type="text/template">
+      <h2><%= photo.title %></h2>
+      <div class="row-fluid">
+        <div class="span6">
+          <img class="thumbnail" src="<%= photo.originalUrl %>">
+        </div>
+        <div class="span6 well">
+          <h2>Details</h2>
+        </div>
+      </div>
+    </script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/lib/jquery-1.8.0.min.js"></script>
+    <script src="js/lib/underscore-1.3.3.min.js"></script>
+    <script src="js/lib/backbone-0.9.2.min.js"></script>
+    <script src="js/lib/backbone-localstorage.min.js"></script>
+    <script src="js/models/photo.js"></script>
+    <script src="js/collections/photos.js"></script>
+    <script src="js/views/photo.js"></script>
+    <script src="js/views/app.js"></script>
+    <script src="js/routers/router.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

@@ -21,19 +21,40 @@ $(function( $ ) {
     thumbnailTemplate: _.template($('#thumbnail-template').html()),
 
     events: {
+      'click button[type="submit"]': 'search'
     },
 
     initialize: function() {
       this.photos = new App.Collections.Photos();
-      this.flickrOptions = {
+
+      /* Binding Event Handlers */
+      _.bindAll(this);
+      this.photos.bind('reset', this.addAllPhotos, this);
+      this.photos.bind('add', this.addPhoto, this);
+
+      $('.pre-scrollable').bind('scroll', this.loadMore);
+
+    },
+
+    render: function() {
+      console.log('app rendered');
+      $('.search-query').val('Calgary');
+      this.search();
+    },
+
+    search: function(ev){
+      if (ev) ev.preventDefault();
+      this.currentPage = 1;
+
+      var flickrOptions = {
         data: {
           method: 'flickr.photos.search',
           format: 'json',
           api_key: '32c3b83036747c13dd9c1582c110f76a',
-          text: 'calgary',
+          text: $('.search-query').val(),
           safe_search: 1,
           per_page: 20,
-          page: 1
+          page: this.currentPage
         },
         dataType : 'jsonp',
         jsonp : 'jsoncallback',
@@ -41,16 +62,39 @@ $(function( $ ) {
         error: this.handleError
       };
 
-      /* Binding Event Handlers */
-      _.bindAll(this);
-      this.photos.bind('reset', this.addAllPhotos, this);
-      this.photos.bind('add', this.addPhoto, this);
-
-      this.photos.fetch(this.flickrOptions);
+      this.clearPhotos();
+      this.photos.fetch(flickrOptions);
     },
 
-    render: function() {
-      console.log('app rendered');
+    loadMore: function(ev){
+      ev.preventDefault();
+
+      if ($(ev.target).scrollTop() + $(ev.target).innerHeight() >= $(ev.target)[0].scrollHeight) {
+        this.currentPage++;
+
+        var flickrOptions = {
+          data: {
+            method: 'flickr.photos.search',
+            format: 'json',
+            api_key: '32c3b83036747c13dd9c1582c110f76a',
+            text: $('.search-query').val(),
+            safe_search: 1,
+            per_page: 20,
+            page: this.currentPage
+          },
+          dataType : 'jsonp',
+          jsonp : 'jsoncallback',
+          success: this.photos.parse,
+          error: this.handleError,
+          add: true
+        };
+
+        this.photos.fetch(flickrOptions);
+      }
+    },
+
+    clearPhotos: function() {
+      $("#photo-list").html('');
     },
 
     addPhoto: function( photo ) {
@@ -63,6 +107,7 @@ $(function( $ ) {
     },
 
     addAllPhotos: function() {
+      console.log(this.currentPage, this.photos);
       this.photos.each(this.addPhoto);
     }
   });

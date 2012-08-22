@@ -20,16 +20,18 @@ $(function( $ ) {
     },
 
     initialize: function(options) {
+      // this.parent = options.parent || {};
       this.model = options.model;
+      this.name = 'Photo #' + this.model.get('id');
 
       /* Binding Event Handlers */
       _.bindAll(this);
-
     },
 
     render: function() {
-      console.log('photo rendered');
-      $(this.el).addClass('row-fluid').html(this.template({photo: this.model.toJSON()}));
+      console.log('Rendered ' + this.name);
+
+      $(this.el).addClass('row-fluid').html(this.template({ photo: this.model.toJSON() }));
 
       return this;
     },

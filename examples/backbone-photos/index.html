@@ -37,7 +37,7 @@
     <!-- Size should be 32 x 32 pixels -->
     <link rel="shortcut icon" href="img/favicon.ico">
   </head>
-  <body>
+  <body id="photo-app">
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -47,15 +47,15 @@
             <ul class="nav">
             </ul>
             <form class="navbar-search pull-left" action="">
-              <i class="icon-search icon-white"></i>
               <input type="text" class="search-query span3" placeholder="Search">
+              <button type="submit" class="btn btn-primary btn-search"><i class="icon-search icon-white"></i></button>
             </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
     <!-- Main Content -->
-    <div id="photo-app" class="container-fluid">
+    <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
           <div class="well pre-scrollable">
@@ -77,19 +77,28 @@
     <script id="thumbnail-template" type="text/template">
       <li>
         <a class="thumbnail" id="photo-<%= photo.id %>" href="#/photos/<%= photo.id %>">
-          <img src="<%= photo.thumbnailUrl %>">
+          <img src="<%= photo.thumbnail %>">
         </a>
       </li>
     </script>
 
     <script id="photo-template" type="text/template">
-      <h2><%= photo.title %></h2>
+      <h2><%= photo.title || 'Untitled' %></h2>
       <div class="row-fluid">
         <div class="span6">
-          <img class="thumbnail" src="<%= photo.originalUrl %>">
+          <img class="thumbnail" src="<%= photo.original %>">
         </div>
-        <div class="span6 well">
-          <h2>Details</h2>
+        <div class="span6">
+          <div class="well">
+            <h2>Details</h2>
+            <div class="code">
+              <ul>
+                <% _.each(photo, function(value, key){ %>
+                  <li><%= '"' + key + '": ' + '"' + value + '"'%></li>
+                <% }); %>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </script>

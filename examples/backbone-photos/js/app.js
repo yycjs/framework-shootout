@@ -11,5 +11,4 @@ $(function() {
   // This will cause it to navigate to the home route
   App.router = new App.Routers.AppRouter();
   Backbone.history.start();
-
 });

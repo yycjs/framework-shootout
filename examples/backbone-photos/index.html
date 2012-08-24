@@ -37,43 +37,43 @@
     <!-- Size should be 32 x 32 pixels -->
     <link rel="shortcut icon" href="img/favicon.ico">
   </head>
-  <body id="photo-app">
+  <body>
+    <section id="photo-app"></section>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="#">Backbone Photos</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-            </ul>
-            <form class="navbar-search pull-left" action="">
-              <input type="text" class="search-query span3" placeholder="Search">
-              <button type="submit" class="btn btn-primary btn-search"><i class="icon-search icon-white"></i></button>
-            </form>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-    <!-- Main Content -->
     <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well pre-scrollable">
-            <ul id="photo-list" class="nav nav-list thumbnails">
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div id="photo-content" class="span9"></div>
-      </div><!--/row-->
-
       <footer>
         <p>&copy; YYCjs 2012</p>
       </footer>
-
-    </div> <!-- /container -->
+    </div>
 
     <!-- Templates
     ================================================== -->
+    <script id="app-template" type="text/template">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="brand" href="#/photos">Backbone Photos</a>
+            <form class="navbar-search pull-left" action="">
+              <input type="text" class="search-query" placeholder="Search">
+              <button type="submit" class="btn btn-primary btn-search"><i class="icon-search icon-white"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Main Content -->
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span3">
+            <div class="well pre-scrollable">
+              <ul id="photo-list" class="nav nav-list thumbnails">
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+          <div id="photo-content" class="span9"></div>
+        </div><!--/row-->
+      </div> <!-- /container-fluid -->
+    </script>
+
     <script id="thumbnail-template" type="text/template">
       <li>
         <a class="thumbnail" id="photo-<%= photo.id %>" href="#/photos/<%= photo.id %>">
@@ -83,21 +83,17 @@
     </script>
 
     <script id="photo-template" type="text/template">
-      <h2><%= photo.title || 'Untitled' %></h2>
+      <h2><%= photo.title._content || 'Untitled' %></h2>
       <div class="row-fluid">
         <div class="span6">
-          <img class="thumbnail" src="<%= photo.original %>">
+          <img class="thumbnail" src="<%= photo.image %>">
         </div>
         <div class="span6">
           <div class="well">
             <h2>Details</h2>
-            <div class="code">
-              <ul>
-                <% _.each(photo, function(value, key){ %>
-                  <li><%= '"' + key + '": ' + '"' + value + '"'%></li>
-                <% }); %>
-              </ul>
-            </div>
+            <textarea class="code">
+              <%= JSON.stringify(photo, undefined, 4) %>
+            </textarea>
           </div>
         </div>
       </div>

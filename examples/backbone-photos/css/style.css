@@ -19,23 +19,21 @@
   }
 }
 
-.icon-search {
-  margin-top: -2px;
+.navbar .btn {
+  padding: 4px 10px 4px;
+  margin: 0px 0px 7px;
 }
 
 .code {
   overflow-x: scroll;
   color: red;
+  word-spacing: normal;
   white-space: nowrap;
   background-color: whiteSmoke;
   border: 1px solid #CCC;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-}
-
-.code > ul {
-  list-style: none;
-  padding: 5px;
-  margin-left: 5px;
+  width: 100%;
+  min-height: 300px;
 }

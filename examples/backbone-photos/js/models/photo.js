@@ -12,44 +12,94 @@ $(function( $ ) {
 
     defaults: {},
 
+    url: 'http://api.flickr.com/services/rest/',
+
+    apiKey: '32c3b83036747c13dd9c1582c110f76a',
+
     initialize: function() {
+      // var flickrOptions = {
+      //   data: {
+      //     method: 'flickr.photos.getInfo',
+      //     format: 'json',
+      //     api_key: '32c3b83036747c13dd9c1582c110f76a',
+      //     photo_id: this.get('id')
+      //   },
+      //   dataType : 'jsonp',
+      //   jsonp : 'jsoncallback',
+      //   success: this.parse,
+      //   error: this.handleError
+      // };
 
       /* Binding Event Handlers */
       _.bindAll(this);
 
-      this.original();
-      this.thumbnail();
+      // this.fetch();
+    },
 
-      // this.trigger('photo:' + this.get('id'));
+    fetch: function(callback){
+
+      callback = callback || $.noop;
+
+      var that = this;
+
+      $.ajax({
+        url: this.url,
+        data: {
+          method: 'flickr.photos.getInfo',
+          format: 'json',
+          api_key: this.apiKey,
+          photo_id: this.get('id')
+        },
+        dataType : 'jsonp',
+        jsonp : 'jsoncallback',
+        success: function(response){
+          that.set(that.parse(response));
+          callback();
+        },
+        error: this.handleError
+      });
     },
 
     thumbnail: function() {
-      this.set('thumbnail', this.buildUrl('thumb'));
+      return this.buildUrl('square');
     },
 
-    original: function() {
-      this.set('original', this.buildUrl());
+    small: function() {
+      return this.buildUrl('small');
     },
 
     medium: function() {
-      this.set('medium', this.buildUrl('medium'));
+      return this.buildUrl('medium');
     },
 
     large: function() {
-      this.set('large', this.buildUrl('large'));
+      return this.buildUrl('large');
     },
 
     buildUrl: function(size) {
       var urlPrefix = 'http://farm' + this.get('farm') + '.static.flickr.com/' + this.get('server') + '/' + this.get('id') + "_" + this.get('secret');
 
       var sizes = {
-         'square': '_s', // 75x75
-         'thumb': '_m',
-         'medium': '_z', // 640 on the longest side
-         'large': '_b' // 1024 on the longest side
+        'square': '_q', // 150x150
+        'thumb': '_t', // 100 on longest side
+        'small': '_m', // 240 on the longest side
+        'medium': '_z', // 640 on the longest side
+        'large': '_b' // 1024 on the longest side
       };
       var sizeCode = sizes[size] || '';
       return urlPrefix + sizeCode +'.jpg';
+    },
+
+    parse: function(response){
+      // The response will either be the raw response from the flickr API or
+      // will be an backbone model, depending on whether the model is being
+      // populated for the first time or is being updated.
+      if (response.photo) return response.photo;
+      else return response;
+    },
+
+    handleError: function(response){
+      console.log(response);
     }
 
   });

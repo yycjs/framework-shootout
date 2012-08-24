@@ -18,6 +18,7 @@ $(function( $ ) {
     // the App already present in the HTML.
     el: '#photo-app',
 
+    template: _.template($('#app-template').html()),
     thumbnailTemplate: _.template($('#thumbnail-template').html()),
 
     events: {
@@ -31,65 +32,29 @@ $(function( $ ) {
       _.bindAll(this);
       this.photos.bind('reset', this.addAllPhotos, this);
       this.photos.bind('add', this.addPhoto, this);
-
-      $('.pre-scrollable').bind('scroll', this.loadMore);
-
     },
 
     render: function() {
-      console.log('app rendered');
+      $(this.el).html(this.template).fadeIn('slow');
+      $('.pre-scrollable').bind('scroll', this.loadMore);
+
+      console.log('App View Rendered');
       $('.search-query').val('Calgary');
-      this.search();
+      $('button[type="submit"]').trigger('click');
     },
 
     search: function(ev){
-      if (ev) ev.preventDefault();
-      this.currentPage = 1;
-
-      var flickrOptions = {
-        data: {
-          method: 'flickr.photos.search',
-          format: 'json',
-          api_key: '32c3b83036747c13dd9c1582c110f76a',
-          text: $('.search-query').val(),
-          safe_search: 1,
-          per_page: 20,
-          page: this.currentPage
-        },
-        dataType : 'jsonp',
-        jsonp : 'jsoncallback',
-        success: this.photos.parse,
-        error: this.handleError
-      };
+      ev.preventDefault();
 
       this.clearPhotos();
-      this.photos.fetch(flickrOptions);
+      this.photos.fetch($('.search-query').val(), false);
     },
 
     loadMore: function(ev){
       ev.preventDefault();
 
       if ($(ev.target).scrollTop() + $(ev.target).innerHeight() >= $(ev.target)[0].scrollHeight) {
-        this.currentPage++;
-
-        var flickrOptions = {
-          data: {
-            method: 'flickr.photos.search',
-            format: 'json',
-            api_key: '32c3b83036747c13dd9c1582c110f76a',
-            text: $('.search-query').val(),
-            safe_search: 1,
-            per_page: 20,
-            page: this.currentPage
-          },
-          dataType : 'jsonp',
-          jsonp : 'jsoncallback',
-          success: this.photos.parse,
-          error: this.handleError,
-          add: true
-        };
-
-        this.photos.fetch(flickrOptions);
+        this.photos.fetch($('.search-query').val(), true);
       }
     },
 
@@ -98,16 +63,12 @@ $(function( $ ) {
     },
 
     addPhoto: function( photo ) {
-      var html = this.thumbnailTemplate({photo: photo.toJSON()});
+      photo = _.extend( photo.toJSON(), {thumbnail: photo.thumbnail()} );
+      var html = this.thumbnailTemplate({photo: photo });
       $("#photo-list").append(html);
     },
 
-    handleError: function(error){
-      console.log('Error Fetching Flickr Images');
-    },
-
     addAllPhotos: function() {
-      console.log(this.currentPage, this.photos);
       this.photos.each(this.addPhoto);
     }
   });

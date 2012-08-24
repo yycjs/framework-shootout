@@ -15,6 +15,7 @@ $(function( $ ) {
 
         routes: {
             '': 'home',
+            'photos': 'photos',
             'photos/:id': 'photo'
         },
 
@@ -22,38 +23,29 @@ $(function( $ ) {
         },
 
         home: function(){
+          this.navigate('#/photos', {trigger: true});
+        },
+
+        photos: function(){
           if (!this.app){
             this.app = new App.Views.App();
-            // this.showView('#app', view);
             this.app.render();
           }
         },
 
         photo: function(id){
-          this.home();
+          this.photos();
 
-          console.log(id);
-
-          //fetch photo model from photos collection by id
           var photo = this.app.photos.get(id);
-          if (photo){
-            var view = new App.Views.Photo({model: photo});
-            this.showView('#photo-content', view);
-          }
-          else {
-            var that = this;
-            this.app.photos.on('reset', function(){
-              photo = that.app.photos.get(id);
-              var view = new App.Views.Photo({model: photo});
-              that.showView('#photo-content', view);
-            });
-          }
+          var view = new App.Views.Photo({id: id, model: photo});
         },
 
         showView: function(selector, view) {
             if (this.currentView) this.currentView.destroy();
-            $(selector).hide().html(view.render().el).fadeIn('slow');
+            $(selector).hide().html(view.el).fadeIn('slow');
             this.currentView = view;
+
+            console.log('Rendered ' + view.name);
 
             return view;
         }

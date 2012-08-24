@@ -20,20 +20,22 @@ $(function( $ ) {
     },
 
     initialize: function(options) {
-      // this.parent = options.parent || {};
-      this.model = options.model;
+      options = options || {};
+      this.model = options.model || new App.Models.Photo({id: options.id});
       this.name = 'Photo #' + this.model.get('id');
 
       /* Binding Event Handlers */
       _.bindAll(this);
+      this.model.on('change', this.render);
+
+      this.model.fetch();
     },
 
     render: function() {
-      console.log('Rendered ' + this.name);
+      var photo = _.extend( this.model.toJSON(), {image: this.model.medium()} );
+      $(this.el).addClass('row-fluid').html(this.template({ photo: photo }));
 
-      $(this.el).addClass('row-fluid').html(this.template({ photo: this.model.toJSON() }));
-
-      return this;
+      App.router.showView('#photo-content', this);
     },
 
     // Remove this view from the DOM.

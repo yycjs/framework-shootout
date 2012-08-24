@@ -8,6 +8,8 @@ var App = App || {
 $(function( $ ) {
   'use strict';
 
+  // Our Photo Model
+  // ---------------
   App.Models.Photo = Backbone.Model.extend({
 
     defaults: {},
@@ -17,27 +19,14 @@ $(function( $ ) {
     apiKey: '32c3b83036747c13dd9c1582c110f76a',
 
     initialize: function() {
-      // var flickrOptions = {
-      //   data: {
-      //     method: 'flickr.photos.getInfo',
-      //     format: 'json',
-      //     api_key: '32c3b83036747c13dd9c1582c110f76a',
-      //     photo_id: this.get('id')
-      //   },
-      //   dataType : 'jsonp',
-      //   jsonp : 'jsoncallback',
-      //   success: this.parse,
-      //   error: this.handleError
-      // };
 
       /* Binding Event Handlers */
       _.bindAll(this);
-
-      // this.fetch();
     },
 
+    // Fetch an individual photo by id. This either updates either an
+    // existing 'empty' model or one that already exists in our collection
     fetch: function(callback){
-
       callback = callback || $.noop;
 
       var that = this;

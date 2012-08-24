@@ -8,10 +8,8 @@ var App = App || {
 $(function( $ ) {
   'use strict';
 
-  // The Application
+  // Our overall Application view which is the top-level piece of UI.
   // ---------------
-
-  // Our overall **AppView** is the top-level piece of UI.
   App.Views.App = Backbone.View.extend({
 
     // Instead of generating a new element, bind to the existing skeleton of
@@ -34,6 +32,7 @@ $(function( $ ) {
       this.photos.bind('add', this.addPhoto, this);
     },
 
+    // Render the app view and bind any events
     render: function() {
       $(this.el).html(this.template).fadeIn('slow');
       $('.pre-scrollable').bind('scroll', this.loadMore);
@@ -43,6 +42,7 @@ $(function( $ ) {
       $('button[type="submit"]').trigger('click');
     },
 
+    // Search for more photos based on search keywords
     search: function(ev){
       ev.preventDefault();
 
@@ -50,6 +50,7 @@ $(function( $ ) {
       this.photos.fetch($('.search-query').val(), false);
     },
 
+    // Load more photos when user scrolls to bottom of image list
     loadMore: function(ev){
       ev.preventDefault();
 
@@ -58,6 +59,8 @@ $(function( $ ) {
       }
     },
 
+    // Remove photos from the DOM. We don't need to free the actual collection
+    // because Backbone resets it when we perform a new search
     clearPhotos: function() {
       $("#photo-list").html('');
     },

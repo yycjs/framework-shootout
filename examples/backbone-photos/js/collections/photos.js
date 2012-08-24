@@ -7,6 +7,9 @@ var App = App || {
 
 $(function( $ ) {
   'use strict';
+
+  // Our Collection of Photos
+  // ---------------
   App.Collections.Photos = Backbone.Collection.extend({
 
     model: App.Models.Photo,
@@ -17,6 +20,8 @@ $(function( $ ) {
 
     url: 'http://api.flickr.com/services/rest/',
 
+
+    // Fetch photos from Flickr API
     fetch: function(keyword, add, callback){
       if (add) this.currentPage++;
       else this.currentPage = 1;

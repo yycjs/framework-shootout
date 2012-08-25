@@ -5,21 +5,44 @@
 =======
 __Library__:
 
-* A set of tools
+* A set of tools to reduce overhead and improve application consistency by providing reusable pieces of code.
+* A library provides useful tools for a specific purpose (functions, helper libs) so you can build your app your way.
 
 __Framework__:
 
+* A **more opinionated** set of tools to reduce overhead and improve application consistency by providing reusable pieces of code.
+* Inversion of control. Frameworks specify how you should write your app.
+
 ---
 
-## MVC, MVVM, MOVE? WTF?
+## MVC, MVVM, MVP, MVW, MOVE? WTF?
 
-Ipsum
+* Quite a few different patterns being used in client side JS.
+* Most are based off of MVC in some fashion.
+* They are all really based on the [Observer Pattern](http://en.wikipedia.org/wiki/Observer_pattern).
+
 
 ---
 
 ## Client side MVC
 
 Sit
+
+---
+
+## Client side MVVM
+
+* Model: The data/domain model
+* View: The view and view logic (buttons, templates, UI events)
+* View Model: Converting model data top view data (data-binding)
+
+---
+
+## Client side MVP
+
+* Model: The data/domain model
+* View: The view and view logic (buttons, templates, UI events)
+* Presenter: Converting model data top view data (data-binding)
 
 ---
 
@@ -41,7 +64,8 @@ frameworks of today.
 
 ## Backbone
 
-Pork
+* Created by [Jeremy Ashkenas](http://ashkenas.com/) and maintained by [Document Cloud](http://documentcloud.github.com/).
+*
 
 ---
 

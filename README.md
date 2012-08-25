@@ -1,4 +1,4 @@
-# JavaScript framework shootout
+# JavaScript Framework Shootout
 
 Resources For Bootcamp #5 on Javascript MV* Frameworks
 

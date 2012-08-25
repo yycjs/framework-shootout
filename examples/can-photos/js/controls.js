@@ -66,9 +66,7 @@
 			}
 		},
 
-		'.btn-search click' : function() {
-			this.search();
-		}
+		'.btn-search click' : 'search'
 	});
 
 	// Export stuff to the namespace

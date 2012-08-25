@@ -70,7 +70,7 @@
             </aside>
             
             <aside class="page_number">
-              1/15
+              1/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -110,7 +110,7 @@
             </aside>
             
             <aside class="page_number">
-              2/15
+              2/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -141,7 +141,7 @@
             </aside>
             
             <aside class="page_number">
-              3/15
+              3/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -176,7 +176,7 @@
             </aside>
             
             <aside class="page_number">
-              4/15
+              4/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -191,12 +191,13 @@
             <header><h2>Client side MVC</h2></header>
             
             
-            <section><ul>
-<li><strong>Model</strong>:</li>
-<li><strong>View</strong>:</li>
-<li><strong>Controller</strong>:</li>
-</ul>
-<p><img alt="MVC overview" src="images/mvc.png" /></p></section>
+            <section><p>Separates the representation of information from the user's interaction with it
+<img src="images/mvc.png" alt="MVC overview" style="float: right; margin: 2em;" /></p>
+<ul>
+<li><strong>Controller</strong>: Updates both, view and model according to user interaction</li>
+<li><strong>Model</strong>: The data/domain model</li>
+<li><strong>View</strong>: Creates a representation of the model</li>
+</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -212,7 +213,7 @@
             </aside>
             
             <aside class="page_number">
-              5/15
+              5/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -247,7 +248,7 @@
             </aside>
             
             <aside class="page_number">
-              6/15
+              6/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -282,7 +283,7 @@
             </aside>
             
             <aside class="page_number">
-              7/15
+              7/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -324,7 +325,7 @@ frameworks of today.
             </aside>
             
             <aside class="page_number">
-              8/15
+              8/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -336,12 +337,15 @@ frameworks of today.
         <div class="slide">
           <div class="inner">
             
-            <header><h2>Backbone</h2></header>
+            <header><h2>BackboneJS</h2></header>
             
             
-            <section><ul>
-<li>Created by <a href="http://ashkenas.com/">Jeremy Ashkenas</a> and maintained by <a href="http://documentcloud.github.com/">Document Cloud</a>.
-*</li>
+            <section><p>A client side MVC style framework to structure JavaScript applications, created by <a href="http://ashkenas.com/">Jeremy Ashkenas</a> and maintained by <a href="http://documentcloud.github.com/">Document Cloud</a>:</p>
+<ul>
+<li><strong>Backbone.Model</strong> - Contains interactive data and the logic connected to it</li>
+<li><strong>Backbone.Collection</strong> - An ordered set of models providing list events and manipulation methods</li>
+<li><strong>Backbone.Router</strong> - Provides linkable and bookmarkable URLs</li>
+<li><strong>Backbone.View</strong> - Combines controllers and view</li>
 </ul></section>
             
           </div>
@@ -358,7 +362,101 @@ frameworks of today.
             </aside>
             
             <aside class="page_number">
-              9/15
+              9/17
+            </aside>
+            <img class="logo" src="theme/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>BackboneJS - Photo gallery I</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Photo</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+
+    <span class="c1">// Default attributes for the photo</span>
+    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// Ensure that each photo created has an `src`.</span>
+      <span class="nx">src</span><span class="o">:</span> <span class="s2">&quot;placeholder.jpg&quot;</span><span class="p">,</span>
+      <span class="nx">caption</span><span class="o">:</span> <span class="s2">&quot;A default image&quot;</span><span class="p">,</span>
+      <span class="nx">viewed</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+<span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/17
+            </aside>
+            <img class="logo" src="theme/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>BackboneJS - Photo gallery II</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">PhotoGallery</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+
+    <span class="c1">// Reference to this collection&#39;s model.</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="nx">Photo</span><span class="p">,</span>
+
+    <span class="c1">// Filter down the list of all photos that have been viewed</span>
+    <span class="nx">viewed</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">photo</span><span class="p">){</span> <span class="k">return</span> <span class="nx">photo</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;viewed&#39;</span><span class="p">);</span> <span class="p">});</span>
+    <span class="p">},</span>
+
+    <span class="c1">// Filter down the list to only photos that have not yet been viewed</span>
+    <span class="nx">unviewed</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">without</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">viewed</span><span class="p">());</span>
+    <span class="p">}</span>
+
+<span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -374,7 +472,7 @@ frameworks of today.
             
             
             <section><p><img src="images/javascriptmvc.png" alt="JavaScriptMVC" style="float: right; margin-left: 2em;" />
-One of the first client side JavaScript MVC frameworks first released about 5 years ago.</p>
+One of the first client side JavaScript MVC frameworks first released in 2008.</p>
 <p>Provides full application stack with dependency manager, MVC framework (formerly jQueryMX),
 functional testing library and documentation engine:</p>
 <ul>
@@ -399,7 +497,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              10/15
+              12/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -440,7 +538,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              11/15
+              13/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -480,7 +578,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              12/15
+              14/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -522,7 +620,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              13/15
+              15/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -566,7 +664,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              14/15
+              16/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -602,7 +700,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              15/15
+              17/17
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -659,38 +757,48 @@ functional testing library and documentation engine:</p>
         </tr>
         
         <tr id="toc-row-9" class="sub">
-          <th><a href="#slide9">Backbone</a></th>
+          <th><a href="#slide9">BackboneJS</a></th>
           <td><a href="#slide9">9</a></td>
         </tr>
         
         <tr id="toc-row-10" class="sub">
-          <th><a href="#slide10"><a href="http://javascriptmvc.com">JavaScriptMVC</a></a></th>
+          <th><a href="#slide10">BackboneJS - Photo gallery I</a></th>
           <td><a href="#slide10">10</a></td>
         </tr>
         
         <tr id="toc-row-11" class="sub">
-          <th><a href="#slide11"><a href="http://canjs.us">CanJS</a></a></th>
+          <th><a href="#slide11">BackboneJS - Photo gallery II</a></th>
           <td><a href="#slide11">11</a></td>
         </tr>
         
         <tr id="toc-row-12" class="sub">
-          <th><a href="#slide12">CanJS - View</a></th>
+          <th><a href="#slide12"><a href="http://javascriptmvc.com">JavaScriptMVC</a></a></th>
           <td><a href="#slide12">12</a></td>
         </tr>
         
         <tr id="toc-row-13" class="sub">
-          <th><a href="#slide13">CanJS - Model</a></th>
+          <th><a href="#slide13"><a href="http://canjs.us">CanJS</a></a></th>
           <td><a href="#slide13">13</a></td>
         </tr>
         
         <tr id="toc-row-14" class="sub">
-          <th><a href="#slide14">CanJS - Control</a></th>
+          <th><a href="#slide14">CanJS - View</a></th>
           <td><a href="#slide14">14</a></td>
         </tr>
         
         <tr id="toc-row-15" class="sub">
-          <th><a href="#slide15">Some Great Resources</a></th>
+          <th><a href="#slide15">CanJS - Model</a></th>
           <td><a href="#slide15">15</a></td>
+        </tr>
+        
+        <tr id="toc-row-16" class="sub">
+          <th><a href="#slide16">CanJS - Control</a></th>
+          <td><a href="#slide16">16</a></td>
+        </tr>
+        
+        <tr id="toc-row-17" class="sub">
+          <th><a href="#slide17">Some Great Resources</a></th>
+          <td><a href="#slide17">17</a></td>
         </tr>
         
       

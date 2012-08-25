@@ -33,11 +33,13 @@ __Framework__:
 
 ## Client side MVC
 
-* __Model__:
-* __View__:
-* __Controller__:
+Separates the representation of information from the user's interaction with it
+<img src="images/mvc.png" alt="MVC overview" style="float: right; margin: 2em;" />
 
-![MVC overview](images/mvc.png)
+* __Controller__: Updates both, view and model according to user interaction
+* __Model__: The data/domain model
+* __View__: Creates a representation of the model
+
 
 ---
 
@@ -73,17 +75,63 @@ frameworks of today.
 
 ---
 
-## Backbone
+## BackboneJS
 
-* Created by [Jeremy Ashkenas](http://ashkenas.com/) and maintained by [Document Cloud](http://documentcloud.github.com/).
-*
+A client side MVC style framework to structure JavaScript applications, created by [Jeremy Ashkenas](http://ashkenas.com/) and maintained by [Document Cloud](http://documentcloud.github.com/):
+
+* __Backbone.Model__ - Contains interactive data and the logic connected to it
+* __Backbone.Collection__ - An ordered set of models providing list events and methods
+* __Backbone.Router__ - Provides linkable and bookmarkable URLs
+* __Backbone.View__ - Combines controllers and view
+
+---
+
+## BackboneJS - Photo gallery I
+
+	!javascript
+	var Photo = Backbone.Model.extend({
+
+	    // Default attributes for the photo
+	    defaults: {
+	      // Ensure that each photo created has an `src`.
+	      src: "placeholder.jpg",
+	      caption: "A default image",
+	      viewed: false
+	    },
+
+	    initialize: function() {
+	    }
+
+	});
+
+---
+
+## BackboneJS - Photo gallery II
+
+	!javascript
+	var PhotoGallery = Backbone.Collection.extend({
+
+        // Reference to this collection's model.
+        model: Photo,
+
+        // Filter down the list of all photos that have been viewed
+        viewed: function() {
+          return this.filter(function(photo){ return photo.get('viewed'); });
+        },
+
+        // Filter down the list to only photos that have not yet been viewed
+        unviewed: function() {
+          return this.without.apply(this, this.viewed());
+        }
+
+    });
 
 ---
 
 ## [JavaScriptMVC](http://javascriptmvc.com)
 
 <img src="images/javascriptmvc.png" alt="JavaScriptMVC" style="float: right; margin-left: 2em;" />
-One of the first client side JavaScript MVC frameworks first released about 5 years ago.
+One of the first client side JavaScript MVC frameworks first released in 2008.
 
 Provides full application stack with dependency manager, MVC framework (formerly jQueryMX),
 functional testing library and documentation engine:

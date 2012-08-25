@@ -70,7 +70,7 @@
             </aside>
             
             <aside class="page_number">
-              1/12
+              1/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -81,6 +81,8 @@
       <div class="slide-wrapper">
         <div class="slide">
           <div class="inner">
+            
+            <header><h2>Library vs. Framework</h2></header>
             
             
             <section><p><strong>Library</strong>:</p>
@@ -108,7 +110,7 @@
             </aside>
             
             <aside class="page_number">
-              2/12
+              2/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -120,10 +122,42 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h2>MVC, MVVM, MVP, MVW, MOVE? WTF?</h2></header>
+            <header><h2>Single page applications</h2></header>
+            
+            
+            <section><p><img alt="Overview" src="images/tsa_overview.png" /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/14
+            </aside>
+            <img class="logo" src="theme/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>MV*? WTF?</h2></header>
             
             
             <section><ul>
+<li>MVC, MVVM, MVP, MVW, MOVE all follow MV*</li>
 <li>Quite a few different patterns being used in client side JS.</li>
 <li>Most are based off of MVC in some fashion.</li>
 <li>They are all really based on the <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer Pattern</a>.</li>
@@ -143,7 +177,7 @@
             </aside>
             
             <aside class="page_number">
-              3/12
+              4/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -158,7 +192,12 @@
             <header><h2>Client side MVC</h2></header>
             
             
-            <section><p>Sit</p></section>
+            <section><ul>
+<li><strong>Model</strong>:</li>
+<li><strong>View</strong>:</li>
+<li><strong>Controller</strong>:</li>
+</ul>
+<p><img alt="MVC overview" src="images/mvc.png" /></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -174,7 +213,7 @@
             </aside>
             
             <aside class="page_number">
-              4/12
+              5/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -192,8 +231,9 @@
             <section><ul>
 <li>Model: The data/domain model</li>
 <li>View: The view and view logic (buttons, templates, UI events)</li>
-<li>View Model: Converting model data top view data (data-binding)</li>
-</ul></section>
+<li>View Model: Converting model data to view data and back (data-binding)</li>
+</ul>
+<p><img alt="MVVM overview" src="images/mvvm.png" /></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -209,7 +249,7 @@
             </aside>
             
             <aside class="page_number">
-              5/12
+              6/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -226,40 +266,12 @@
             
             <section><ul>
 <li>Model: The data/domain model</li>
-<li>View: The view and view logic (buttons, templates, UI events)</li>
-<li>Presenter: Converting model data top view data (data-binding)</li>
-</ul></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              6/12
-            </aside>
-            <img class="logo" src="theme/yycjs-logo.png">
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h2><a href="http://todomvc.com/">TodoMVC</a></h2></header>
-            
-            
-            <section><p>The same Todo application implemented using MV* concepts in most of the popular JavaScript MV*
+<li>View: The view (buttons, templates, routes UI events to presenter)</li>
+<li>Presenter: The middle-man between the view and the model (logic goes here!)</li>
+</ul>
+<h2><img alt="MVP overview" src="images/mvp.png" /></h2>
+<h2><a href="http://todomvc.com/">TodoMVC</a></h2>
+<p>The same Todo application implemented using MV* concepts in most of the popular JavaScript MV*
 frameworks of today.
 <img src="images/todomvc.png" alt="TodoMVC" style="float: right; margin: 3em;" /></p>
 <ul>
@@ -286,7 +298,7 @@ frameworks of today.
             </aside>
             
             <aside class="page_number">
-              7/12
+              7/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -320,7 +332,7 @@ frameworks of today.
             </aside>
             
             <aside class="page_number">
-              8/12
+              8/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -340,8 +352,8 @@ One of the first client side JavaScript MVC frameworks first released about 5 ye
 <p>Provides full application stack with dependency manager, MVC framework (formerly jQueryMX),
 functional testing library and documentation engine:</p>
 <ul>
-<li>CanJS</li>
-<li>jQuery++</li>
+<li><a href="http://canjs.us">CanJS</a> - Client side MVC framework</li>
+<li><a href="http://jquerypp.com">jQuery++</a> - Useful DOM helpers and special events for jQuery</li>
 <li><a href="http://javascriptmvc.com/docs.html#!stealjs">StealJS</a> - JavaScript file dependency manager</li>
 <li><a href="http://funcunit.com">Funcunit</a> - A QUnit and jQuery based functional testing library</li>
 <li><a href="http://javascriptmvc.com/docs.html#!DocumentJS">DocumentJS</a> - A JavaScript documentation engine</li>
@@ -361,7 +373,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              9/12
+              9/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -373,7 +385,7 @@ functional testing library and documentation engine:</p>
         <div class="slide">
           <div class="inner">
             
-            <header><h2>CanJS</h2></header>
+            <header><h2><a href="http://canjs.us">CanJS</a></h2></header>
             
             
             <section><p>Client side MVC framework for building rich web applications. Supports <em>jQuery</em>, <em>Zepto</em>, <em>Mootools</em>,
@@ -402,7 +414,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              10/12
+              10/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -414,10 +426,10 @@ functional testing library and documentation engine:</p>
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h2>CanJS - Example</h2></header>
+            <header><h2>CanJS - View</h2></header>
             
             
-            <section><p><strong>A view</strong></p>
+            <section><p>Views are defined as live binding Embedded JavaScript (EJS):</p>
 <div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/ejs&quot;</span> <span class="na">id=</span><span class="s">&quot;todos&quot;</span><span class="nt">&gt;</span>
   <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
   <span class="o">&lt;%</span> <span class="k">for</span><span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span> <span class="o">%&gt;</span>
@@ -426,9 +438,38 @@ functional testing library and documentation engine:</p>
   <span class="o">&lt;</span><span class="err">/ul&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
 </pre></div>
-
-<p><strong>Controls and Models</strong></p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Todo</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">Model</span><span class="p">({</span>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/14
+            </aside>
+            <img class="logo" src="theme/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>CanJS - Model</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Todo</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">Model</span><span class="p">({</span>
   <span class="nx">findAll</span> <span class="o">:</span> <span class="s1">&#39;GET /todos&#39;</span><span class="p">,</span>
   <span class="nx">findOne</span> <span class="o">:</span> <span class="s1">&#39;GET /todos/{id}&#39;</span><span class="p">,</span>
   <span class="nx">create</span>  <span class="o">:</span> <span class="s1">&#39;POST /todos&#39;</span><span class="p">,</span>
@@ -436,11 +477,51 @@ functional testing library and documentation engine:</p>
   <span class="nx">destroy</span> <span class="o">:</span> <span class="s1">&#39;DELETE /todos/{id}&#39;</span>
 <span class="p">},</span> <span class="p">{});</span>
 
-<span class="kd">var</span> <span class="nx">Control</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">Control</span><span class="p">({</span>
-  <span class="s1">&#39;button click&#39;</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">findElementById</span><span class="p">(</span><span class="s1">&#39;mydiv&#39;</span><span class="p">).</span><span class="nx">innerHtml</span> <span class="o">=</span>
-          <span class="nx">can</span><span class="p">.</span><span class="nx">view</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">,</span> <span class="nx">Todo</span><span class="p">.</span><span class="nx">findAll</span><span class="p">());</span>
-  <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Todo</span><span class="p">({</span> <span class="nx">name</span> <span class="o">:</span> <span class="s1">&#39;Do dishes&#39;</span> <span class="p">});</span>
+<span class="nx">model</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Do something else&#39;</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/14
+            </aside>
+            <img class="logo" src="theme/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>CanJS - Control</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Control</span> <span class="o">=</span> <span class="nx">can</span><span class="p">.</span><span class="nx">Control</span><span class="p">({</span>
+    <span class="s1">&#39;button click&#39;</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">findElementById</span><span class="p">(</span><span class="s1">&#39;mydiv&#39;</span><span class="p">).</span><span class="nx">innerHtml</span> <span class="o">=</span>
+      <span class="nx">can</span><span class="p">.</span><span class="nx">view</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">view</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">todos</span> <span class="o">:</span> <span class="nx">Todo</span><span class="p">.</span><span class="nx">findAll</span><span class="p">()</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="k">new</span> <span class="nx">Control</span><span class="p">(</span><span class="s1">&#39;#element&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">view</span> <span class="o">:</span> <span class="s1">&#39;todos&#39;</span>
 <span class="p">});</span>
 </pre></div>
 </section>
@@ -459,7 +540,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              11/12
+              13/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -471,11 +552,10 @@ functional testing library and documentation engine:</p>
         <div class="slide">
           <div class="inner">
             
-            <header><h2>Resources</h2></header>
+            <header><h2>Some Great Resources</h2></header>
             
             
-            <section><h2>Some Great Resources</h2>
-<ul>
+            <section><ul>
 <li><a href="http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/">Comparison from Throne of JS</a></li>
 <li><a href="http://todomvc.com/">TODO MVC</a></li>
 <li><a href="http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/">Journey Through The JavaScript MVC Jungle</a></li>
@@ -496,30 +576,7 @@ functional testing library and documentation engine:</p>
             </aside>
             
             <aside class="page_number">
-              12/12
-            </aside>
-            <img class="logo" src="theme/yycjs-logo.png">
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source:  -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="page_number">
-              /12
+              14/14
             </aside>
             <img class="logo" src="theme/yycjs-logo.png">
           </footer>
@@ -539,35 +596,34 @@ functional testing library and documentation engine:</p>
         <td><a href="#slide1">1</a></td>
       </tr>
       
-      
-      <tr id="toc-row-2">
-        <th><a href="#slide2">-</a></th>
-        <td><a href="#slide2">2</a></td>
-      </tr>
-      
+        
+        <tr id="toc-row-2" class="sub">
+          <th><a href="#slide2">Library vs. Framework</a></th>
+          <td><a href="#slide2">2</a></td>
+        </tr>
         
         <tr id="toc-row-3" class="sub">
-          <th><a href="#slide3">MVC, MVVM, MVP, MVW, MOVE? WTF?</a></th>
+          <th><a href="#slide3">Single page applications</a></th>
           <td><a href="#slide3">3</a></td>
         </tr>
         
         <tr id="toc-row-4" class="sub">
-          <th><a href="#slide4">Client side MVC</a></th>
+          <th><a href="#slide4">MV*? WTF?</a></th>
           <td><a href="#slide4">4</a></td>
         </tr>
         
         <tr id="toc-row-5" class="sub">
-          <th><a href="#slide5">Client side MVVM</a></th>
+          <th><a href="#slide5">Client side MVC</a></th>
           <td><a href="#slide5">5</a></td>
         </tr>
         
         <tr id="toc-row-6" class="sub">
-          <th><a href="#slide6">Client side MVP</a></th>
+          <th><a href="#slide6">Client side MVVM</a></th>
           <td><a href="#slide6">6</a></td>
         </tr>
         
         <tr id="toc-row-7" class="sub">
-          <th><a href="#slide7"><a href="http://todomvc.com/">TodoMVC</a></a></th>
+          <th><a href="#slide7">Client side MVP</a></th>
           <td><a href="#slide7">7</a></td>
         </tr>
         
@@ -582,18 +638,28 @@ functional testing library and documentation engine:</p>
         </tr>
         
         <tr id="toc-row-10" class="sub">
-          <th><a href="#slide10">CanJS</a></th>
+          <th><a href="#slide10"><a href="http://canjs.us">CanJS</a></a></th>
           <td><a href="#slide10">10</a></td>
         </tr>
         
         <tr id="toc-row-11" class="sub">
-          <th><a href="#slide11">CanJS - Example</a></th>
+          <th><a href="#slide11">CanJS - View</a></th>
           <td><a href="#slide11">11</a></td>
         </tr>
         
         <tr id="toc-row-12" class="sub">
-          <th><a href="#slide12">Resources</a></th>
+          <th><a href="#slide12">CanJS - Model</a></th>
           <td><a href="#slide12">12</a></td>
+        </tr>
+        
+        <tr id="toc-row-13" class="sub">
+          <th><a href="#slide13">CanJS - Control</a></th>
+          <td><a href="#slide13">13</a></td>
+        </tr>
+        
+        <tr id="toc-row-14" class="sub">
+          <th><a href="#slide14">Some Great Resources</a></th>
+          <td><a href="#slide14">14</a></td>
         </tr>
         
       

@@ -2,6 +2,8 @@
 
 ---
 
+## Library vs. Framework
+
 __Library__:
 
 * A set of tools to reduce overhead and improve application consistency by providing reusable pieces of code.
@@ -14,6 +16,11 @@ __Framework__:
 
 ---
 
+## Single page applications
+
+![Overview](images/tsa_overview.png)
+
+---
 ## MV\*? WTF?
 
 * MVC, MVVM, MVP, MVW, MOVE all follow MV\*
@@ -26,7 +33,11 @@ __Framework__:
 
 ## Client side MVC
 
-Sit
+* __Model__:
+* __View__:
+* __Controller__:
+
+![MVC overview](images/mvc.png)
 
 ---
 
@@ -36,6 +47,8 @@ Sit
 * View: The view and view logic (buttons, templates, UI events)
 * View Model: Converting model data to view data and back (data-binding)
 
+![MVVM overview](images/mvvm.png)
+
 ---
 
 ## Client side MVP
@@ -44,6 +57,7 @@ Sit
 * View: The view (buttons, templates, routes UI events to presenter)
 * Presenter: The middle-man between the view and the model (logic goes here!)
 
+![MVP overview](images/mvp.png)
 ---
 
 ## [TodoMVC](http://todomvc.com/)
@@ -77,15 +91,15 @@ One of the first client side JavaScript MVC frameworks first released about 5 ye
 Provides full application stack with dependency manager, MVC framework (formerly jQueryMX),
 functional testing library and documentation engine:
 
-* CanJS
-* jQuery++
+* [CanJS](http://canjs.us) - Client side MVC framework
+* [jQuery++](http://jquerypp.com) - Useful DOM helpers and special events for jQuery
 * [StealJS](http://javascriptmvc.com/docs.html#!stealjs) - JavaScript file dependency manager
 * [Funcunit](http://funcunit.com) - A QUnit and jQuery based functional testing library
 * [DocumentJS](http://javascriptmvc.com/docs.html#!DocumentJS) - A JavaScript documentation engine
 
 ---
 
-## CanJS
+## [CanJS](http://canjs.us)
 
 Client side MVC framework for building rich web applications. Supports *jQuery*, *Zepto*, *Mootools*,
 *Dojo*, *YUI*.
@@ -100,9 +114,9 @@ Client side MVC framework for building rich web applications. Supports *jQuery*,
 
 ---
 
-## CanJS - Example
+## CanJS - View
 
-__A view__
+Views are defined as live binding Embedded JavaScript (EJS):
 
     !html
     <script type="text/ejs" id="todos">
@@ -113,27 +127,41 @@ __A view__
       </ul>
     </script>
 
-__Controls and Models__
+---
 
-    !javascript
-    var Todo = can.Model({
-      findAll : 'GET /todos',
-      findOne : 'GET /todos/{id}',
-      create  : 'POST /todos',
-      update  : 'PUT /todos/{id}',
-      destroy : 'DELETE /todos/{id}'
-    }, {});
+## CanJS - Model
 
-    var Control = can.Control({
-      'button click' : function() {
-        document.findElementById('mydiv').innerHtml =
-              can.view('todos', Todo.findAll());
-      }
-    });
+	!javascript
+	var Todo = can.Model({
+	  findAll : 'GET /todos',
+	  findOne : 'GET /todos/{id}',
+	  create  : 'POST /todos',
+	  update  : 'PUT /todos/{id}',
+	  destroy : 'DELETE /todos/{id}'
+	}, {});
+
+	var model = new Todo({ name : 'Do dishes' });
+	model.attr('name', 'Do something else');
 
 ---
 
-## Resources
+## CanJS - Control
+
+	!javascript
+	var Control = can.Control({
+		'button click' : function() {
+			document.findElementById('mydiv').innerHtml =
+          can.view(this.options.view, {
+            todos : Todo.findAll()
+          });
+		}
+	});
+
+	new Control('#element', {
+	  view : 'todos'
+	});
+
+---
 
 ## Some Great Resources
 
@@ -141,5 +169,3 @@ __Controls and Models__
 * [TODO MVC](http://todomvc.com/)
 * [Journey Through The JavaScript MVC Jungle](http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/)
 * [The Top 10 Javascript MVC Frameworks Reviewed](http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/)
-
----

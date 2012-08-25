@@ -1,50 +1,8 @@
-# JavaScript framework shootout
+Bootcamp4 - Javascript Framework Shootout
+=========
 
----
+Resources For Bootcamp #5 on Javascript MV* Frameworks
 
-## What is a framework anyway?
+### How to View ###
 
-Bacon
-
----
-
-## Model, View, Controller
-
-Ipsum
-
----
-
-## Client side MVC
-
-Sit
-
----
-
-## Backbone
-
-Pork
-
----
-
-## CanJS
-
-
-Dolor
-
----
-
-## Resources
-
-* [Comparison from Throne of JS](http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/)
-
----
-
-## Ember
-
-Sirloin
-
----
-
-## ExtJS
-
-Amen
+You can either look at the slides in markdown format `slides.md` or simply open `presentation.html` in any web browser. Simple.

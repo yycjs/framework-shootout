@@ -1,17 +1,9 @@
 (function(namespace) {
-	namespace.PhotoViewer = can.Control({
-		init : function(el, ops) {
-			var self = this;
-			can.route('/photos/:id');
-			can.route.bind( 'id', function( ev, newVal ) {
-				self.loadPhoto(newVal);
-			});
-		},
-
-		loadPhoto : function(id) {
-			var self = this;
+	var PhotoViewer = can.Control({
+		'{can.route} id' : function(source, event, id) {
+			var element = this.element;
 			Photo.findOne({ id : id }, function(photo) {
-				self.element.html(can.view('photo-template', {
+				element.html(can.view('photo-template', {
 					photo : photo,
 					json : JSON.stringify(photo.attr(), undefined, 4)
 				}));
@@ -19,12 +11,11 @@
 		}
 	});
 
-	namespace.PhotoList = can.Control({
-			defaults : {
-				page : 1
-			}
-		},
-		{
+	var PhotoList = can.Control({
+		defaults : {
+			page : 1
+		}
+	}, {
 		' search' : function(el, ev, term) {
 			this.options.text = term;
 			// When the search term changes we need to delete all old thumbnails
@@ -43,6 +34,7 @@
 		},
 
 		scroll : function(el, ev) {
+			// When scrolled to the bottom
 			if (el.scrollTop() + el.innerHeight() >= el[0].scrollHeight) {
 				// Switch to the next page
 				this.options.page++;
@@ -51,7 +43,7 @@
 		}
 	});
 
-	namespace.Search = can.Control({
+	var Search = can.Control({
 		init : function(el, ops) {
 			this.element.html(can.view('search-template', {
 				term : this.options.term
@@ -66,10 +58,6 @@
 			$(this.options.list).trigger('search', term);
 		},
 
-		'.search-query change' : function(el) {
-			this.search();
-		},
-
 		'.search-query keypress' : function(el, ev) {
 			// Search on enter key press as well
 			if(ev.which == 13) {
@@ -82,4 +70,11 @@
 			this.search();
 		}
 	});
+
+	// Export stuff to the namespace
+	can.extend(namespace, {
+		PhotoViewer : PhotoViewer,
+		PhotoList : PhotoList,
+		Search : Search
+	})
 })(window);

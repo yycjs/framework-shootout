@@ -1,4 +1,6 @@
 $(function() {
+	can.route('/photos/:id');
+
 	new PhotoList('#photo-list');
 	new PhotoViewer('#photo-content');
 

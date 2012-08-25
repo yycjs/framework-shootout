@@ -1,5 +1,5 @@
 (function(namespace) {
-	namespace.Photo = can.Model({
+	var Photo = can.Model({
 		sizes : {
 			'square': '_q', // 150x150
 			'thumb': '_t', // 100 on longest side
@@ -74,5 +74,8 @@
 			var sizeCode = this.constructor.sizes[size] || '';
 			return urlPrefix + sizeCode +'.jpg';
 		}
-	})
-})(window)
+	});
+
+	// Export our model to the namespace
+	namespace.Photo = Photo;
+})(window);

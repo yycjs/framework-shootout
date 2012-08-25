@@ -1,14 +1,19 @@
+
 # JavaScript framework shootout
 
 ---
 
 ## What is a framework anyway?
 
-Bacon
+__Library__:
+
+* A set of tools
+
+__Framework__:
 
 ---
 
-## Model, View, Controller
+## MVC, MVVM, MOVE? WTF?
 
 Ipsum
 
@@ -20,15 +25,41 @@ Sit
 
 ---
 
-## TodoMVC
+## [TodoMVC](http://todomvc.com/)
 
-![TodoMVC](images/todomvc.png)
+The same Todo application implemented using MV\* concepts in most of the popular JavaScript MV\*
+frameworks of today.
+<img src="images/todomvc.png" alt="TodoMVC" style="float: right; margin: 3em;" />
+
+* Backbone
+* Ember
+* AngularJS
+* Spine
+* KnockoutJS
+* DOJO
+* ...
 
 ---
 
 ## Backbone
 
 Pork
+
+---
+
+## [JavaScriptMVC](http://javascriptmvc.com)
+
+<img src="images/javascriptmvc.png" alt="JavaScriptMVC" style="float: right; margin-left: 2em;" />
+One of the first client side JavaScript MVC frameworks first released about 5 years ago.
+
+Provides full application stack with dependency manager, MVC framework (formerly jQueryMX),
+functional testing library and documentation engine:
+
+* CanJS
+* jQuery++
+* [StealJS](http://javascriptmvc.com/docs.html#!stealjs) - JavaScript file dependency manager
+* [Funcunit](http://funcunit.com) - A QUnit and jQuery based functional testing library
+* [DocumentJS](http://javascriptmvc.com/docs.html#!DocumentJS) - A JavaScript documentation engine
 
 ---
 

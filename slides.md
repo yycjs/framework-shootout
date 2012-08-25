@@ -1,19 +1,37 @@
-
-# JavaScript framework shootout
+# JavaScript Framework Shootout
 
 ---
 
-## What is a framework anyway?
+## Library vs. Framework
 
 __Library__:
 
-* A set of tools
+* A set of tools to reduce overhead and improve application consistency by providing reusable pieces of code.
+* A library provides useful tools for a specific purpose (functions, helper libs) so you can build your app your way.
 
 __Framework__:
 
+* A **more opinionated** set of tools to reduce overhead and improve application consistency by providing reusable pieces of code.
+* Inversion of control. Frameworks specify how you should write your app.
+
 ---
 
-## MVC? WTF?
+## Single page applications
+
+![Overview](images/tsa_overview.png)
+
+---
+
+## MVC, MVVM, MVP, MVW, MOVE? WTF?
+
+* Quite a few different patterns being used in client side JS.
+* Most are based off of MVC in some fashion.
+* They are all really based on the [Observer Pattern](http://en.wikipedia.org/wiki/Observer_pattern).
+
+
+---
+
+## Client side MVC
 
 * __Model__:
 * __View__:
@@ -23,9 +41,19 @@ __Framework__:
 
 ---
 
-## Single page applications
+## Client side MVVM
 
-![Overview](images/tsa_overview.png)
+* Model: The data/domain model
+* View: The view and view logic (buttons, templates, UI events)
+* View Model: Converting model data top view data (data-binding)
+
+---
+
+## Client side MVP
+
+* Model: The data/domain model
+* View: The view and view logic (buttons, templates, UI events)
+* Presenter: Converting model data top view data (data-binding)
 
 ---
 
@@ -47,7 +75,8 @@ frameworks of today.
 
 ## Backbone
 
-Pork
+* Created by [Jeremy Ashkenas](http://ashkenas.com/) and maintained by [Document Cloud](http://documentcloud.github.com/).
+*
 
 ---
 
@@ -131,18 +160,9 @@ Views are defined as live binding Embedded JavaScript (EJS):
 
 ---
 
-## Resources
+## Some Great Resources
 
 * [Comparison from Throne of JS](http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/)
-
----
-
-## Ember
-
-Sirloin
-
----
-
-## ExtJS
-
-Amen
+* [TODO MVC](http://todomvc.com/)
+* [Journey Through The JavaScript MVC Jungle](http://coding.smashingmagazine.com/2012/07/27/journey-through-the-javascript-mvc-jungle/)
+* [The Top 10 Javascript MVC Frameworks Reviewed](http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/)

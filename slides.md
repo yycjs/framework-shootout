@@ -2,7 +2,6 @@
 
 ---
 
-=======
 __Library__:
 
 * A set of tools to reduce overhead and improve application consistency by providing reusable pieces of code.
@@ -15,8 +14,9 @@ __Framework__:
 
 ---
 
-## MVC, MVVM, MVP, MVW, MOVE? WTF?
+## MV\*? WTF?
 
+* MVC, MVVM, MVP, MVW, MOVE all follow MV\*
 * Quite a few different patterns being used in client side JS.
 * Most are based off of MVC in some fashion.
 * They are all really based on the [Observer Pattern](http://en.wikipedia.org/wiki/Observer_pattern).
@@ -34,15 +34,15 @@ Sit
 
 * Model: The data/domain model
 * View: The view and view logic (buttons, templates, UI events)
-* View Model: Converting model data top view data (data-binding)
+* View Model: Converting model data to view data and back (data-binding)
 
 ---
 
 ## Client side MVP
 
 * Model: The data/domain model
-* View: The view and view logic (buttons, templates, UI events)
-* Presenter: Converting model data top view data (data-binding)
+* View: The view (buttons, templates, routes UI events to presenter)
+* Presenter: The middle-man between the view and the model (logic goes here!)
 
 ---
 
@@ -104,32 +104,32 @@ Client side MVC framework for building rich web applications. Supports *jQuery*,
 
 __A view__
 
-  !html
-  <script type="text/ejs" id="todos">
-    <ul>
-    <% for( var i = 0; i < this.length; i++ ) { %>
-      <li><%= this[ i ].name %></li>
-    <% } %>
-    </ul>
+    !html
+    <script type="text/ejs" id="todos">
+      <ul>
+      <% for( var i = 0; i < this.length; i++ ) { %>
+        <li><%= this[ i ].name %></li>
+      <% } %>
+      </ul>
     </script>
 
 __Controls and Models__
 
-  !javascript
-  var Todo = can.Model({
-    findAll : 'GET /todos',
-    findOne : 'GET /todos/{id}',
-    create  : 'POST /todos',
-    update  : 'PUT /todos/{id}',
-    destroy : 'DELETE /todos/{id}'
-  }, {});
+    !javascript
+    var Todo = can.Model({
+      findAll : 'GET /todos',
+      findOne : 'GET /todos/{id}',
+      create  : 'POST /todos',
+      update  : 'PUT /todos/{id}',
+      destroy : 'DELETE /todos/{id}'
+    }, {});
 
-  var Control = can.Control({
-    'button click' : function() {
-      document.findElementById('mydiv').innerHtml =
-            can.view('todos', Todo.findAll());
-    }
-  });
+    var Control = can.Control({
+      'button click' : function() {
+        document.findElementById('mydiv').innerHtml =
+              can.view('todos', Todo.findAll());
+      }
+    });
 
 ---
 

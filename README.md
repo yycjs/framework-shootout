@@ -13,15 +13,19 @@ __Framework__:
 
 ---
 
-## MVC, MVVM, MOVE? WTF?
+## MVC? WTF?
 
-Ipsum
+* __Model__:
+* __View__:
+* __Controller__:
+
+![MVC overview](images/mvc.png)
 
 ---
 
-## Client side MVC
+## Single page applications
 
-Sit
+![Overview](images/tsa_overview.png)
 
 ---
 
@@ -55,15 +59,15 @@ One of the first client side JavaScript MVC frameworks first released about 5 ye
 Provides full application stack with dependency manager, MVC framework (formerly jQueryMX),
 functional testing library and documentation engine:
 
-* CanJS
-* jQuery++
+* [CanJS](http://canjs.us) - Client side MVC framework
+* [jQuery++](http://jquerypp.com) - Useful DOM helpers and special events for jQuery
 * [StealJS](http://javascriptmvc.com/docs.html#!stealjs) - JavaScript file dependency manager
 * [Funcunit](http://funcunit.com) - A QUnit and jQuery based functional testing library
 * [DocumentJS](http://javascriptmvc.com/docs.html#!DocumentJS) - A JavaScript documentation engine
 
 ---
 
-## CanJS
+## [CanJS](http://canjs.us)
 
 Client side MVC framework for building rich web applications. Supports *jQuery*, *Zepto*, *Mootools*,
 *Dojo*, *YUI*.
@@ -78,20 +82,22 @@ Client side MVC framework for building rich web applications. Supports *jQuery*,
 
 ---
 
-## CanJS - Example
+## CanJS - View
 
-__A view__
+Views are defined as live binding Embedded JavaScript (EJS):
 
 	!html
 	<script type="text/ejs" id="todos">
-		<ul>
-		<% for( var i = 0; i < this.length; i++ ) { %>
-			<li><%= this[ i ].name %></li>
-		<% } %>
-		</ul>
-    </script>
+    <ul>
+      <% todos.each(function(todo) { %>
+        <li><%= todo.attr('name'); %></li>
+      <% }) %>
+    </ul>
+	</script>
 
-__Controls and Models__
+---
+
+## CanJS - Model
 
 	!javascript
 	var Todo = can.Model({
@@ -102,14 +108,26 @@ __Controls and Models__
 	  destroy : 'DELETE /todos/{id}'
 	}, {});
 
+	var model = new Todo({ name : 'Do dishes' });
+	model.attr('name', 'Do something else');
+
+---
+
+## CanJS - Control
+
+	!javascript
 	var Control = can.Control({
 		'button click' : function() {
 			document.findElementById('mydiv').innerHtml =
-        		can.view('todos', Todo.findAll());
+          can.view(this.options.view, {
+            todos : Todo.findAll()
+          });
 		}
 	});
 
----
+	new Control('#element', {
+	  view : 'todos'
+	});
 
 ---
 

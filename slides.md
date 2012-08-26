@@ -60,6 +60,7 @@ Separates the representation of information from the user's interaction with it
 * Presenter: The middle-man between the view and the model (logic goes here!)
 
 ![MVP overview](images/mvp.png)
+
 ---
 
 ## [TodoMVC](http://todomvc.com/)

@@ -63,17 +63,6 @@
 
     <!-- Templates
     ================================================== -->
-    <script id="search-template" type="text/ejs">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="#/photos">can.show('Photos')</a>
-          <form class="navbar-search pull-left" action="">
-            <input type="text" class="search-query" placeholder="Search" value="<%= term %>" />
-            <button type="submit" class="btn btn-primary btn-search"><i class="icon-search icon-white"></i></button>
-          </form>
-        </div>
-      </div>
-    </script>
 
     <script id="photo-list-template" type="text/ejs">
         <% photos.each(function(photo) { %>
@@ -109,6 +98,7 @@
     <script src="js/can.min.js"></script>
     <script src="js/controls.js"></script>
     <script src="js/model.js"></script>
+    <script src="js/search/search.js"></script>
     <script src="js/app.js"></script>
 
   </body>

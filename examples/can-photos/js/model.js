@@ -59,7 +59,9 @@
 				return raw.photo;
 			});
 		}
-	}, {
+	},
+	// Prototype
+	{
 		/**
 		 * Returns the URL for this photo instance
 		 * @param size The size to use (defaults to 'thumb')

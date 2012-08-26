@@ -1,6 +1,6 @@
 (function(namespace) {
 	var PhotoViewer = can.Control({
-		'{can.route} id' : function(source, event, id) {
+		'{can.route} photoid' : function(source, event, id) {
 			var element = this.element;
 			Photo.findOne({ id : id }, function(photo) {
 				element.html(can.view('photo-template', {
@@ -43,36 +43,9 @@
 		}
 	});
 
-	var Search = can.Control({
-		init : function(el, ops) {
-			this.element.html(can.view('search-template', {
-				term : this.options.term
-			}));
-			this.search();
-		},
-
-		search : function() {
-			// Retrieve the search term
-			var term = this.element.find('.search-query').val();
-			// Trigger a search event on our list
-			$(this.options.list).trigger('search', term);
-		},
-
-		'.search-query keypress' : function(el, ev) {
-			// Search on enter key press as well
-			if(ev.which == 13) {
-				this.search();
-				ev.preventDefault();
-			}
-		},
-
-		'.btn-search click' : 'search'
-	});
-
 	// Export stuff to the namespace
 	can.extend(namespace, {
 		PhotoViewer : PhotoViewer,
-		PhotoList : PhotoList,
-		Search : Search
+		PhotoList : PhotoList
 	})
 })(window);

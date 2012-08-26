@@ -1,10 +1,10 @@
 $(function() {
-	can.route('/photos/:id');
+	can.route('/photos/:photoid');
 
 	new PhotoList('#photo-list');
 	new PhotoViewer('#photo-content');
 
-	new Search('#search', {
+	new App.Search('#search', {
 		term : 'Calgary',
 		list : '#photo-list'
 	});

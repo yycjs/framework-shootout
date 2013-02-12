@@ -1,9 +1,5 @@
 # JavaScript Framework Shootout
 
-Resources For Bootcamp #5 on Javascript MV* Frameworks
-
-### How to View ###
-
-You can either look at the slides in markdown format `slides.md` or simply open `presentation.html` in any web browser. Simple.
+We are going to begin comparing some client side MVC frameworks by building a Flickr photo viewer using CanJS and Backbone. The slides can be found [here](http://yycjs.com/framework-shootout) and the examples can be found [here](https://github.com/yycjs/framework-shootout/tree/gh-pages/examples).
 
 
